@@ -15,33 +15,41 @@ document.addEventListener('DOMContentLoaded', () => {
     element.classList.remove('d-none');
   }
 
-  showLoginForm.addEventListener('click', () => {
-    hideElement(buttonsContainer);
-    showElement(loginForm);
-  });
+  if (showLoginForm && loginForm) {
+    showLoginForm.addEventListener('click', () => {
+      hideElement(buttonsContainer);
+      showElement(loginForm);
+    });
+  }
 
-  showSignupForm.addEventListener('click', () => {
-    hideElement(buttonsContainer);
-    showElement(signupForm);
-  });
+  if (showSignupForm && signupForm) {
+    showSignupForm.addEventListener('click', () => {
+      hideElement(buttonsContainer);
+      showElement(signupForm);
+    });
+  }
 
-  backFromLogin.addEventListener('click', () => {
-    showElement(buttonsContainer);
-    hideElement(loginForm);
-  });
+  if (backFromLogin && buttonsContainer && loginForm) {
+    backFromLogin.addEventListener('click', () => {
+      showElement(buttonsContainer);
+      hideElement(loginForm);
+    });
+  }
 
-  backFromSignup.addEventListener('click', () => {
-    showElement(buttonsContainer);
-    hideElement(signupForm);
-  });
-});
-
+  if (backFromSignup && buttonsContainer && signupForm) {
+    backFromSignup.addEventListener('click', () => {
+      showElement(buttonsContainer);
+      hideElement(signupForm);
+    });
+  }
 
   // Login form submission handling
-  document.querySelector('.login-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+  const loginFormEl = document.querySelector('.login-form');
+  if (loginFormEl) {
+    loginFormEl.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.querySelector('#email-login').value.trim();
+      const password = document.querySelector('#password-login').value.trim();
 
     if (email && password) {
       // Send a POST request to the API endpoint
@@ -57,31 +65,31 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         alert(response.statusText);
       }
-    }
-  });
+    });
+  }
 
   // Signup form submission handling
-  document.querySelector('.signup-form').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const name = document.querySelector('#name-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+  const signupFormEl = document.querySelector('.signup-form');
+  if (signupFormEl) {
+    signupFormEl.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const username = document.querySelector('#name-signup').value.trim();
+      const email = document.querySelector('#email-signup').value.trim();
+      const password = document.querySelector('#password-signup').value.trim();
 
-    if (name && email && password) {
-      const response = await fetch('/api/users', {
-        method: 'POST',
-        body: JSON.stringify({ name, email, password }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/dashboard');
-      } else {
-        alert(response.statusText);
+      if (username && email && password) {
+        const response = await fetch('/api/user/signup', {
+          method: 'POST',
+          body: JSON.stringify({ username, email, password }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.status === 200) {
+          document.location.replace('/dashboard');
+        } else {
+          alert(response.statusText);
+        }
       }
-    }
-  });
-
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+    });
+  }
+});
