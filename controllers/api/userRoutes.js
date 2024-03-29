@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
 });
 
 //Added the ability to have the user go right to the the dashboard after the sign up instead of having to go back to the login page
-router.post('/signup', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
         //creates a new user and saves their data and login information into the database
         const newUser = await User.create({
@@ -77,7 +77,7 @@ router.post('/signup', async (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            res.status(204).end();
+            res.redirect('/login');
         });
     } else {
         res.status(404).end();

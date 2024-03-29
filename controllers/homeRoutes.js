@@ -18,6 +18,8 @@ router.get('/', withAuth, (req, res) => {
     }
 });
 
+
+
 //renders the login page to the user
 // if user is logged in they will go to their dashboard, otherwise they see the login page again
 router.get('/login', (req, res) => {
@@ -34,7 +36,7 @@ router.get('/dashboard', withAuth, (req, res) => {
     console.log(req.session)
     if (req.session.logged_in) {
         //corrected the rendering redirect by making it go to the dashbaord.handlebars by removing the '/' -tb
-        res.render('dashboard');
+        res.render('dashboard', { logged_in: req.session.logged_in }); //added logged_in -tb
     } else {
         //added '/' to the user gets redirected to the login page if they are not logged in -tb
         res.redirect('/login');
