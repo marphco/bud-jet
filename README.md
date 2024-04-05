@@ -11,7 +11,7 @@
 - [Credits](#credits)
 
 ## Usage
-To use Penny Wise you only need to navigate [this link](https://pennywise-47773ea2b3e1.herokuapp.com/).
+To use Penny Wise you only need to navigate [this link](https://pennywise-ace8592b7d74.herokuapp.com/).
 
 ![screenshot1](https://github.com/marphco/pennywise/assets/5993166/707959aa-67a7-4d03-898b-27e4e36e03f1)
 
