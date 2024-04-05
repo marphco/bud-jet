@@ -36,10 +36,10 @@ We welcome contributions to Penny Wise! If you have suggestions for improvements
 
 **Penny Wise** was brought to life thanks to the collaborative effort of a dedicated team:
 
-- **Tamer Bekir**
-- **Marco Franco**
-- **Michael Navarrete**
-- **Julian Ortiz**
+- [**Tamer Bekir**](https://github.com/Tamerbekir)
+- [**Marco Franco**](https://github.com/marphco)
+- [**Michael Navarrete**](https://github.com/mikenavarrete)
+- [**Julian Ortiz**](https://github.com/julz-tm)
 
 Special thanks to all contributors who have invested their time and effort into making **Penny Wise** a valuable tool for everyone.
 
