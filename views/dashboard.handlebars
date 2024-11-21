@@ -1,0 +1,73 @@
+<header>
+  <img src="/images/logo.png" alt="Logo" class="logo mb-5" />
+  <button id="logout" class="btn btn-secondary m-2">
+    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+  </button>
+</header>
+
+<main class="container">
+  <div id="dashboard-content" class="col-12 row">
+    <!-- Budget Column -->
+    <div class="col-md-4">
+      <div class="card p-4 m-1">
+        <h5>Define your Expenses</h5>
+        <div id="budget-categories">
+          {{!-- {{#each budgets as | budget |}}
+          <div class="d-flex justify-content-between align-items-center mb-2 budget-item" data-category="{{budget.id}}">
+            <label class="form-label">{{budget.name}}:</label>
+            <div class="input-group">
+              <span class="input-group-text" style="color:#793842; font-weight:600;">$</span>
+              <input type="text" class="form-control money-input budget-input" placeholder="0.00"
+                value="{{budget.amount}}" data-category="{{budget.id}}">
+              <button class="btn remove-budget-btn" aria-label="Remove budget">
+                <i class="fas fa-times" style="color:red;"></i>
+              </button>
+            </div>
+          </div>
+          {{/each }} --}}
+          <canvas id="budgetChart" width="400" height="400"></canvas>
+          <!-- Default Categories will be added by JavaScript -->
+        </div>
+        <div id="add-category-section" class="mt-4">
+          <input type="text" id="new-category-name" class="form-control mb-2" placeholder="Enter New Category Name">
+          <button id="add-category-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Category</button>
+        </div>
+      </div>
+    </div>
+    <!-- Goal Column -->
+    <div id="goal-column" class="col-md-8">
+      <div class="card p-4 m-1">
+        <h5>Define your Goals</h5>
+        <div class="row" id="goal-categories">
+          {{!-- {{#each goals as | goal |}}
+          <div class="d-flex justify-content-between align-items-center mb-2 goal-item" data-category="{{goal.id}}">
+            <label class="form-label">{{goal.name}}:</label>
+            <div class="input-group">
+              <span class="input-group-text" style="color:#793842; font-weight:600;">$</span>
+              <input type="text" class="form-control money-input goal-input" placeholder="0.00" value="{{goal.amount}}"
+                data-category="{{goal.id}}">
+              <button class="btn remove-goal-btn" aria-label="Remove goal">
+                <i class="fas fa-times" style="color:red;"></i>
+              </button>
+            </div>
+          </div>
+          {{/each }} --}}
+          <canvas id="goalChart" width="400" height="209"></canvas>
+          <!-- Two sub-columns for Goal Categories -->
+          <div class="col-md-6" id="goal-categories-left"></div> <!-- Left column -->
+          <div class="col-md-6" id="goal-categories-right"></div> <!-- Right column -->
+          <button id="save-btn" class="btn btn-primary"><i class="fa-solid fa-save"></i> Save</button>
+
+
+        </div>
+      </div>
+    </div>
+
+</main>
+
+
+
+{{!-- added chart script -tb --}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/dashboard.js"></script>

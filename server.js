@@ -30,7 +30,6 @@ const hbs = exphbs.create({
     helpers: dateHelpers,
 });
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 
@@ -43,13 +42,13 @@ app.engine('handlebars', exphbs({
 //middlewares for express to use on every request
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
+app.use(express.static(path.join( __dirname, 'public')));
 
 //we are setting up a session that uses sequelize 
 const sess = {
     secret: process.env.SESS_SECRET,
     cookie: {
-        maxAge: 300000,
+        maxAge: 30000000,
         httpOnly: true,
         secure: false,
         sameSite: 'strict',

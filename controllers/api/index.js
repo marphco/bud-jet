@@ -5,8 +5,7 @@ const userRoutes = require('./userRoutes');
 const dashboardRoute = require('./dashboardRoute')
 
 router.use('/user', userRoutes)
-router.use('dashboard', dashboardRoute)
-//! Add additional routes/pages if needed
+router.use('/dashboard', dashboardRoute)
 
 //exporting routes
 module.exports = router;
